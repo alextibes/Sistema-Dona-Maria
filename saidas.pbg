@@ -1,0 +1,19 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "saidas.pbl" "";
+@end;
+@begin Objects
+ "w_vendas.srw" "saidas.pbl";
+ "d_imp_venda_financeiro.srd" "saidas.pbl";
+ "w_vendas_financeiro.srw" "saidas.pbl";
+ "d_impressao_vendas.srd" "saidas.pbl";
+ "d_vendas_financeiros.srd" "saidas.pbl";
+ "dw_graph_vendas.srd" "saidas.pbl";
+ "d_vendas_produtos.srd" "saidas.pbl";
+ "d_vendas_forma_pagamento.srd" "saidas.pbl";
+ "d_imp_venda_produtos.srd" "saidas.pbl";
+ "d_vendas.srd" "saidas.pbl";
+ "d_imp_venda_cabecalho.srd" "saidas.pbl";
+ "d_pesquisa_produtos_venda.srd" "saidas.pbl";
+ "w_pesquisa_produtos_venda.srw" "saidas.pbl";
+@end;
