@@ -1,0 +1,15 @@
+HA$PBExportHeader$s_resize.srs
+global type s_resize from structure
+	dragobject		control
+	boolean		vertical_center
+	boolean		horizontal_center
+	boolean		fixo_direita
+	boolean		fixo_abaixo
+	boolean		horizontal_resize
+	boolean		vertical_resize
+	long		x
+	long		y
+	long		width
+	long		height
+end type
+
