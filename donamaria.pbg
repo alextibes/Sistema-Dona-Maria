@@ -1,0 +1,15 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "donamaria.pbl" "";
+@end;
+@begin Objects
+ "w_fundo.srw" "donamaria.pbl";
+ "f_null.srf" "donamaria.pbl";
+ "w_login.srw" "donamaria.pbl";
+ "m_menu.srm" "donamaria.pbl";
+ "p_donamaria_exe.srj" "donamaria.pbl";
+ "donamaria.sra" "donamaria.pbl";
+ "w_principal.srw" "donamaria.pbl";
+ "n_gravacao.sru" "donamaria.pbl";
+ "s_valores.srs" "donamaria.pbl";
+@end;
