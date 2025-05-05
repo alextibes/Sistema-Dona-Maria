@@ -1,0 +1,76 @@
+HA$PBExportHeader$d_clientes_cadastro.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=67108864 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1583 color="536870912" )
+table(column=(type=long updatewhereclause=yes key=yes name=id_cliente dbname="cliente.id_cliente" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=nome dbname="cliente.nome" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=flag_inativo dbname="cliente.flag_inativo" initial="false" values="Ativo	0/Inativo	1/" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=tipo_pessoa dbname="cliente.tipo_pessoa" initial="FISICA" values="F$$HEX1$$ed00$$ENDHEX$$sica	FISICA/Jur$$HEX1$$ed00$$ENDHEX$$dica	JURIDICA/" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=cnpj_cpf dbname="cliente.cnpj_cpf" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=endereco dbname="cliente.endereco" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=bairro dbname="cliente.bairro" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=cep dbname="cliente.cep" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=email dbname="cliente.email" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=fone dbname="cliente.fone" )
+ column=(type=char(8190) update=yes updatewhereclause=yes name=observacao dbname="cliente.observacao" )
+ column=(type=datetime update=yes updatewhereclause=yes name=data_alteracao dbname="cliente.data_alteracao" )
+ retrieve="SELECT 
+	ID_CLIENTE,
+	NOME,
+	FLAG_INATIVO,
+	TIPO_PESSOA,
+	CNPJ_CPF,
+	ENDERECO,
+	BAIRRO,
+--	CIDADE,
+--	UF,
+	CEP,
+	EMAIL,
+	FONE,
+	OBSERVACAO,
+	DATA_ALTERACAO
+FROM
+	CLIENTE
+WHERE
+	ID_CLIENTE = :RA_IDCLIENTE" update="CLIENTE" updatewhere=0 updatekeyinplace=yes arguments=(("RA_IDCLIENTE", number)) )
+groupbox(band=detail text=" Status  "border="2" color="8388608" x="80" y="164" height="207" width="584"  name=gb_2 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+groupbox(band=detail text=" Dados Para Contato "border="2" color="8388608" x="76" y="377" height="578" width="3820"  name=gb_1 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="Observa$$HEX2$$e700f500$$ENDHEX$$es" border="0" color="33554432" x="76" y="978" height="63" width="439" html.valueishtml="0"  name=t_10 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=100 border="5" color="33554432" x="76" y="1052" height="427" width="3820" format="[general]" html.valueishtml="0"  name=observacao visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes edit.autovscroll=yes edit.hscrollbar=yes edit.vscrollbar=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=9 alignment="0" tabsequence=60 border="5" color="33554432" x="737" y="538" height="70" width="3083" format="[general]" html.valueishtml="0"  name=email visible="1" edit.limit=0 edit.case=lower edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=10 alignment="0" tabsequence=50 border="5" color="33554432" x="114" y="538" height="70" width="538" format="[general]" html.valueishtml="0"  name=fone visible="1" editmask.mask="(##) #####-####" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=8 alignment="0" tabsequence=70 border="5" color="33554432" x="118" y="701" height="70" width="366" format="[general]" html.valueishtml="0"  name=cep visible="1" editmask.mask="##.###-###" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=6 alignment="0" tabsequence=80 border="5" color="33554432" x="534" y="701" height="70" width="3293" format="[general]" html.valueishtml="0"  name=endereco visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=7 alignment="0" tabsequence=90 border="5" color="33554432" x="114" y="865" height="70" width="1091" format="[general]" html.valueishtml="0"  name=bairro visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="5" color="33554432" x="76" y="90" height="70" width="401" format="[general]" html.valueishtml="0"  name=id_cliente visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="0" color="33554432" x="76" y="264" height="70" width="569" format="[general]" html.valueishtml="0"  name=flag_inativo visible="1" radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="33554432" x="523" y="90" height="70" width="3366" format="[general]" html.valueishtml="0"  name=nome visible="1" edit.limit=80 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="Data da $$HEX1$$fa00$$ENDHEX$$ltima altera$$HEX2$$e700e300$$ENDHEX$$o: " border="0" color="33554432" x="76" y="1499" height="63" width="679" html.valueishtml="0"  name=t_11 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="33554432" x="771" y="1499" height="63" width="725" format="[shortdate] [time]" html.valueishtml="0" protect="0~t1"  name=data_alteracao visible="1" editmask.mask="dd/mm/yyyy hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="Nome" border="0" color="33554432" x="527" y="13" height="63" width="439" html.valueishtml="0"  name=nome_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="C$$HEX1$$f300$$ENDHEX$$digo" border="0" color="33554432" x="76" y="13" height="63" width="393" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="E-Mail" border="0" color="33554432" x="733" y="458" height="63" width="439" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Endere$$HEX1$$e700$$ENDHEX$$o" border="0" color="33554432" x="534" y="628" height="63" width="412" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="CEP" border="0" color="33554432" x="114" y="628" height="63" width="378" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Celular" border="0" color="33554432" x="114" y="458" height="63" width="439" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Cidade" border="0" color="33554432" x="1267" y="788" height="63" width="439" html.valueishtml="0"  name=t_8 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Bairro" border="0" color="33554432" x="114" y="788" height="63" width="439" html.valueishtml="0"  name=t_7 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Estado" border="0" color="33554432" x="2973" y="781" height="63" width="439" html.valueishtml="0"  name=t_12 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+groupbox(band=detail text=" Tipo  "border="2" color="8388608" x="710" y="164" height="207" width="1652"  name=gb_tipo visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="0" color="33554432" x="893" y="234" height="130" width="359" format="[general]" html.valueishtml="0"  name=tipo_pessoa visible="1" radiobuttons.columns=1 radiobuttons.scale=no radiobuttons.threed=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="5" color="33554432" x="1324" y="287" height="70" width="809" format="[general]" html.valueishtml="0"  name=cnpj_cpf visible="1" editmask.mask="###.###.###-##" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="CPF~tif( tipo_pessoa = 'FISICA', 'CPF', 'CNPJ')" border="0" color="33554432" x="1324" y="210" height="63" width="439" html.valueishtml="0"  name=cnpjcpf_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

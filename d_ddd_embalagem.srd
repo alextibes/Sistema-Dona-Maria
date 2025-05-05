@@ -1,0 +1,36 @@
+HA$PBExportHeader$d_ddd_embalagem.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 107 print.margin.right = 107 print.margin.top = 93 print.margin.bottom = 93 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 )
+header(height=70 color="134217730" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=70 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=id_embalagem dbname="produto_embalagem.id_embalagem" )
+ column=(type=char(200) updatewhereclause=yes name=descricao dbname="produto_embalagem.descricao" )
+ column=(type=char(3) updatewhereclause=yes name=abreviacao dbname="produto_embalagem.abreviacao" )
+ retrieve="SELECT
+	ID_EMBALAGEM,   
+	DESCRICAO,   
+	ABREVIACAO
+FROM 
+	PRODUTO_EMBALAGEM
+ORDER BY
+	DESCRICAO   
+" )
+text(band=header alignment="2" text="C$$HEX1$$f300$$ENDHEX$$digo" border="0" color="33554432" x="11" y="3" height="63" width="229" html.valueishtml="0"  name=id_embalagem_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
+text(band=header alignment="2" text="Descri$$HEX2$$e700e300$$ENDHEX$$o" border="0" color="33554432" x="252" y="3" height="63" width="1187" html.valueishtml="0"  name=descricao_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
+text(band=header alignment="2" text="Sigla" border="0" color="33554432" x="1450" y="3" height="63" width="198" html.valueishtml="0"  name=abreviacao_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="33554432" x="11" y="4" height="63" width="229" format="[general]" html.valueishtml="0"  name=id_embalagem visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="252" y="4" height="63" width="1187" format="[general]" html.valueishtml="0"  name=descricao visible="1" edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="33554432" x="1450" y="4" height="63" width="198" format="[general]" html.valueishtml="0"  name=abreviacao visible="1" edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

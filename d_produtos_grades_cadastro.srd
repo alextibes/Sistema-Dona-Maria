@@ -1,0 +1,60 @@
+HA$PBExportHeader$d_produtos_grades_cadastro.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 107 print.margin.right = 107 print.margin.top = 93 print.margin.bottom = 93 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 selected.mouse=no )
+header(height=70 color="134217730" )
+summary(height=0 color="536870912" )
+footer(height=70 color="134217730" )
+detail(height=70 color="536870912" )
+table(column=(type=long updatewhereclause=yes key=yes name=id_grade dbname="produto_grade.id_grade" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=valor_venda dbname="produto_grade.valor_venda" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=subdescricao dbname="produto_grade.subdescricao" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=id_produto dbname="produto_grade.id_produto" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=descricao_cupom dbname="produto_grade.descricao_cupom" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=codigo_barras dbname="produto_grade.codigo_barras" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=flag_inativo dbname="produto_grade.flag_inativo" initial="false" values="	1/	0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=valor_compra dbname="produto_grade.valor_compra" )
+ column=(type=long updatewhereclause=yes name=saldo_estoque dbname="saldo_estoque" initial="0" )
+ retrieve="SELECT
+	id_grade,   
+	valor_venda,   
+	subdescricao,   
+	id_produto,   
+	descricao_cupom,   
+	codigo_barras,   
+	flag_inativo,   
+	valor_compra,
+	0 as Saldo_Estoque
+FROM
+	produto_grade 
+WHERE
+	ID_PRODUTO = :RA_IDPRODUTO" update="produto_grade" updatewhere=1 updatekeyinplace=yes arguments=(("RA_IDPRODUTO", number)) )
+text(band=header alignment="2" text="C$$HEX1$$f300$$ENDHEX$$digo" border="0" color="33554432" x="8" y="3" height="63" width="275" html.valueishtml="0"  name=id_grade_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Valor de Venda" border="0" color="33554432" x="4503" y="3" height="63" width="508" html.valueishtml="0"  name=valor_venda_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Descri$$HEX2$$e700e300$$ENDHEX$$o" border="0" color="33554432" x="290" y="3" height="63" width="1740" html.valueishtml="0"  name=subdescricao_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Descri$$HEX2$$e700e300$$ENDHEX$$o do Cupom" border="0" color="33554432" x="2038" y="3" height="63" width="1328" html.valueishtml="0"  name=descricao_cupom_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="C$$HEX1$$f300$$ENDHEX$$digo de Barras" border="0" color="33554432" x="3373" y="3" height="63" width="584" html.valueishtml="0"  name=codigo_barras_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Inativo" border="0" color="33554432" x="6052" y="3" height="63" width="267" html.valueishtml="0"  name=flag_inativo_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Valor de Compra" border="0" color="33554432" x="3965" y="3" height="63" width="530" html.valueishtml="0"  name=valor_compra_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Lucro" border="0" color="33554432" x="5018" y="3" height="63" width="439" html.valueishtml="0"  name=t_1 visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Saldo em Estoque" border="0" color="33554432" x="5465" y="3" height="63" width="580" html.valueishtml="0"  name=saldo_estoque_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="33554432" x="8" y="4" height="63" width="275" format="[general]" html.valueishtml="0"  name=id_grade visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="5" color="33554432" x="290" y="4" height="63" width="1740" format="[general]" html.valueishtml="0"  name=subdescricao visible="1" edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="2" tabsequence=60 border="0" color="33554432" x="6052" y="4" height="63" width="267" format="[general]" html.valueishtml="0"  name=flag_inativo visible="1" checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="(valor_venda -  valor_compra)"border="0" color="33554432~tif (valor_saldo > 0, rgb(0,0,128), rgb(255,0,0) )" x="5018" y="4" height="63" width="439" format="###,###.00" html.valueishtml="0"  name=valor_saldo visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="5" color="33554432" x="2038" y="4" height="63" width="1328" format="[general]" html.valueishtml="0"  name=descricao_cupom visible="1" edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=30 border="5" color="33554432" x="3377" y="4" height="63" width="580" html.valueishtml="0"  name=codigo_barras visible="1" edit.limit=0 edit.case=any edit.format="################" edit.focusrectangle=no edit.autoselect=no edit.nilisnull=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=40 border="5" color="33554432" x="3965" y="4" height="63" width="530" format="[general]" html.valueishtml="0"  name=valor_compra visible="1" editmask.spin=yes editmask.mask="###,###.00" editmask.spinincr=0 editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=50 border="5" color="33554432" x="4503" y="4" height="63" width="508" format="[general]" html.valueishtml="0"  name=valor_venda visible="1" editmask.spin=yes editmask.mask="###,###.00" editmask.spinincr=0 editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="33554432" x="5465" y="4" height="63" width="580" format="[general]" html.valueishtml="0"  name=saldo_estoque visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+compute(band=footer alignment="0" expression="'(' + rowcount() + ') registros '"border="0" color="33554432" x="290" y="3" height="63" width="1740" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

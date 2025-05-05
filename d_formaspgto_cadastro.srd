@@ -1,0 +1,65 @@
+HA$PBExportHeader$d_formaspgto_cadastro.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=67108864 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1122 color="536870912" )
+table(column=(type=long updatewhereclause=yes key=yes name=id_forma_pagamento dbname="forma_pagamento.id_forma_pagamento" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=descricao dbname="forma_pagamento.descricao" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=permite_entrada dbname="forma_pagamento.permite_entrada" initial="1" values="Entradas	1/Entradas	0" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=permite_saida dbname="forma_pagamento.permite_saida" initial="1" values="Sa$$HEX1$$ed00$$ENDHEX$$das	1/Sa$$HEX1$$ed00$$ENDHEX$$das	0" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=flag_inativo dbname="forma_pagamento.flag_inativo" initial="0" values="Inativo	1/Inativo	0" )
+ column=(type=long update=yes updatewhereclause=yes name=dias_para_recebimento dbname="forma_pagamento.dias_para_recebimento" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=taxa_percentual dbname="forma_pagamento.taxa_percentual" initial="0" )
+ column=(type=char(8190) update=yes updatewhereclause=no name=observacoes dbname="forma_pagamento.observacoes" )
+ column=(type=datetime update=yes updatewhereclause=yes name=criado_em dbname="forma_pagamento.criado_em" initial="now()" )
+ column=(type=datetime update=yes updatewhereclause=yes name=atualizado_em dbname="forma_pagamento.atualizado_em" initial="now()" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=baixa_automatica dbname="forma_pagamento.baixa_automatica" initial="0" values="Baixar t$$HEX1$$ed00$$ENDHEX$$tulos automaticamente	1/Baixar t$$HEX1$$ed00$$ENDHEX$$tulos automaticamente	0" )
+ retrieve="SELECT
+	ID_FORMA_PAGAMENTO,
+	DESCRICAO,
+	permite_entrada,
+	permite_saida,
+	flag_inativo,
+	dias_para_recebimento,
+	taxa_percentual,
+	observacoes,
+	criado_em,
+	atualizado_em,
+	baixa_automatica
+FROM
+	FORMA_PAGAMENTO
+WHERE
+	ID_FORMA_PAGAMENTO = :RA_ID_FORMA_PAGAMENTO" update="FORMA_PAGAMENTO" updatewhere=0 updatekeyinplace=yes arguments=(("RA_ID_FORMA_PAGAMENTO", number)) )
+groupbox(band=detail text=" Aparecer em: "border="2" color="128" x="27" y="301" height="267" width="572"  name=gb_1 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+groupbox(band=detail text=" Configura$$HEX2$$e700f500$$ENDHEX$$es diversas: "border="2" color="128" x="633" y="180" height="394" width="1359"  name=gb_3 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="C$$HEX1$$f300$$ENDHEX$$digo" border="0" color="33554432" x="27" y="13" height="63" width="214" html.valueishtml="0"  name=idclifor_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+groupbox(band=detail text=" Observa$$HEX2$$e700f500$$ENDHEX$$es "border="2" color="128" x="34" y="584" height="437" width="1984"  name=gb_2 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="5" color="33554432" x="69" y="678" height="314" width="1904" format="[general]" html.valueishtml="0"  name=observacoes visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes edit.autovscroll=yes edit.hscrollbar=yes edit.vscrollbar=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="33554432" x="65" y="484" height="63" width="420" format="[general]" html.valueishtml="0"  name=permite_saida visible="1" checkbox.text="Sa$$HEX1$$ed00$$ENDHEX$$das" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="33554432" x="61" y="394" height="63" width="439" format="[general]" html.valueishtml="0"  name=permite_entrada visible="1" checkbox.text="Entradas" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="1" tabsequence=70 border="5" color="33554432" x="1378" y="478" height="70" width="385" format="[general]" html.valueishtml="0"  name=taxa_percentual visible="1" editmask.spin=yes editmask.mask="###.00 %" editmask.spinrange="0~~100" editmask.spinincr=1 editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="1" text="Dias para recebimento" border="0" color="33554432" x="691" y="374" height="70" width="653" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Taxa %" border="0" color="33554432" x="1126" y="478" height="70" width="218" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=60 border="5" color="33554432" x="1378" y="374" height="70" width="504" format="[general]" html.valueishtml="0"  name=dias_para_recebimento visible="1" editmask.spin=yes editmask.mask="###" editmask.spinrange="0~~999" editmask.spinincr=1 editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=11 alignment="0" tabsequence=50 border="0" color="33554432" x="981" y="271" height="63" width="908" format="[general]" html.valueishtml="0"  name=baixa_automatica visible="1" checkbox.text="Baixar t$$HEX1$$ed00$$ENDHEX$$tulos automaticamente" checkbox.on="1" checkbox.off="0" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="Descri$$HEX2$$e700e300$$ENDHEX$$o" border="0" color="33554432" x="279" y="13" height="63" width="294" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="33554432" x="279" y="80" height="70" width="1713" format="[general]" html.valueishtml="0"  name=descricao visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="5" color="33554432" x="27" y="80" height="70" width="198" format="[general]" html.valueishtml="0"  name=id_forma_pagamento visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="0" color="33554432" x="27" y="197" height="63" width="500" format="[general]" html.valueishtml="0"  name=flag_inativo visible="1" checkbox.text="Inativo" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="33554432" x="343" y="1049" height="63" width="557" format="[shortdate] [time]" html.valueishtml="0"  name=criado_em visible="1" editmask.mask="dd/mm/yyyy hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Atualizado em:" border="0" color="33554432" x="1061" y="1049" height="63" width="393" html.valueishtml="0"  name=t_5 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="33554432" x="1462" y="1049" height="63" width="557" format="[shortdate] [time]" html.valueishtml="0"  name=atualizado_em visible="1" editmask.mask="dd/mm/yyyy hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="Criado em:" border="0" color="33554432" x="34" y="1049" height="63" width="298" html.valueishtml="0"  name=t_4 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

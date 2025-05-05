@@ -1,0 +1,48 @@
+HA$PBExportHeader$d_usuarios_cadastro.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=67108864 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=755 color="536870912" )
+table(column=(type=long updatewhereclause=yes key=yes name=id_usuario dbname="usuario.id_usuario" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=nome dbname="usuario.nome" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=flag_inativo dbname="usuario.flag_inativo" initial="false" values="Ativo	false/Inativo	true/" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=login dbname="usuario.login" )
+ column=(type=datetime update=yes updatewhereclause=yes name=data_alteracao dbname="usuario.data_alteracao" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=flag_vendedor dbname="usuario.flag_vendedor" initial="false" values="Vendedor	1/Vendedor	0" )
+ retrieve="SELECT
+    ID_USUARIO,
+    NOME,
+    FLAG_INATIVO,
+    LOGIN,
+    DATA_ALTERACAO,
+	FLAG_VENDEDOR
+FROM
+    USUARIO US
+WHERE
+    ID_USUARIO = :RA_IDUSUARIO" update="USUARIO" updatewhere=0 updatekeyinplace=yes arguments=(("RA_IDUSUARIO", number)) )
+groupbox(band=detail text=""border="2" color="33554432" x="122" y="167" height="147" width="820"  name=gb_1 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+groupbox(band=detail text=""border="2" color="128" x="985" y="167" height="147" width="527"  name=gb_2 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="0" color="33554432" x="179" y="200" height="93" width="706" format="[general]" html.valueishtml="0"  name=flag_inativo visible="1" radiobuttons.columns=2 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="Login" border="0" color="33554432" x="187" y="404" height="63" width="450" html.valueishtml="0"  name=t_login visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="33554432" x="187" y="484" height="63" width="1374" format="[general]" html.valueishtml="0"  name=login visible="1" edit.limit=0 edit.case=upper edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="Data da $$HEX1$$fa00$$ENDHEX$$ltima altera$$HEX2$$e700e300$$ENDHEX$$o:" border="0" color="33554432" x="122" y="638" height="70" width="698" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="33554432" x="824" y="638" height="70" width="717" format="[shortdate] [time]" html.valueishtml="0"  name=data_alteracao visible="1" editmask.mask="dd/mm/yyyy hh:mm:ss" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+groupbox(band=detail text=" Dados de Login "border="2" color="128" x="122" y="324" height="291" width="2809"  name=gb_login visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=30 border="0" color="33554432" x="1027" y="224" height="63" width="401" format="[general]" html.valueishtml="0"  name=flag_vendedor visible="1" checkbox.text="Vendedor" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="C$$HEX1$$f300$$ENDHEX$$digo" border="0" color="33554432" x="122" y="0" height="63" width="321" html.valueishtml="0"  name=estado_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Nome" border="0" color="33554432" x="546" y="0" height="63" width="488" html.valueishtml="0"  name=t_nome visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="33554432" x="546" y="77" height="63" width="2385" format="[general]" html.valueishtml="0"  name=nome visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="5" color="33554432" x="122" y="77" height="63" width="374" format="[general]" html.valueishtml="0" protect="0~t1"  name=id_usuario visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

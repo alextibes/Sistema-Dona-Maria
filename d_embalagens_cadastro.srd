@@ -1,0 +1,35 @@
+HA$PBExportHeader$d_embalagens_cadastro.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=67108864 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=374 color="536870912" )
+table(column=(type=long updatewhereclause=yes key=yes name=id_embalagem dbname="produto_embalagem.id_embalagem" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=descricao dbname="produto_embalagem.descricao" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=abreviacao dbname="produto_embalagem.abreviacao" )
+ retrieve="SELECT 
+	ID_EMBALAGEM,
+	DESCRICAO,
+	ABREVIACAO
+FROM
+	PRODUTO_EMBALAGEM
+WHERE
+	ID_EMBALAGEM = :RA_EMBALAGEM" update="PRODUTO_EMBALAGEM" updatewhere=0 updatekeyinplace=yes arguments=(("RA_EMBALAGEM", number)) )
+text(band=detail alignment="0" text="C$$HEX1$$f300$$ENDHEX$$digo" border="0" color="33554432" x="76" y="13" height="63" width="393" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="5" color="33554432" x="76" y="87" height="80" width="382" format="[general]" html.valueishtml="0"  name=id_embalagem visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="Sigla" border="0" color="33554432" x="76" y="190" height="63" width="561" html.valueishtml="0"  name=t_2 visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="33554432" x="76" y="271" height="80" width="195" format="[general]" html.valueishtml="0"  name=abreviacao visible="1" edit.limit=3 edit.case=upper edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="33554432" x="527" y="87" height="80" width="2038" format="[general]" html.valueishtml="0"  name=descricao visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="Descri$$HEX2$$e700e300$$ENDHEX$$o" border="0" color="33554432" x="527" y="13" height="63" width="439" html.valueishtml="0"  name=nome_t visible="1"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 
