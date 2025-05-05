@@ -1,0 +1,43 @@
+HA$PBExportHeader$d_vendas.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=67108864 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 107 print.margin.right = 107 print.margin.top = 93 print.margin.bottom = 93 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=184 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=id_venda dbname="vendas.id_venda" )
+ column=(type=long update=yes updatewhereclause=yes name=id_cliente dbname="vendas.id_cliente" )
+ column=(type=long update=yes updatewhereclause=yes name=id_usuario dbname="vendas.id_usuario" )
+ column=(type=datetime update=yes updatewhereclause=yes name=data_hora_movimentacao dbname="vendas.data_hora_movimentacao" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=valor_total_bruto dbname="vendas.valor_total_bruto" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=valor_desconto dbname="vendas.valor_desconto" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=valor_total_liquido dbname="vendas.valor_total_liquido" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=id_movimento dbname="vendas.id_movimento" )
+ column=(type=long update=yes updatewhereclause=yes name=id_vendedor dbname="vendas.id_vendedor" )
+ retrieve="SELECT
+	id_venda,
+	id_cliente,
+	id_usuario,
+	data_hora_movimentacao,
+	valor_total_bruto,
+	valor_desconto, 
+	valor_total_liquido, 
+	id_movimento,
+	id_Vendedor
+FROM 
+	public.vendas" update="public.vendas" updatewhere=1 updatekeyinplace=yes )
+text(band=detail alignment="0" text="Cliente" border="0" color="33554432" x="38" y="10" height="63" width="698" html.valueishtml="0"  name=id_cliente_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=10 border="5" color="33554432" x="38" y="90" height="73" width="2091" format="[general]" html.valueishtml="0"  name=id_cliente visible="1" dddw.name=d_ddd_clientes dddw.displaycolumn=nome dddw.datacolumn=id_cliente dddw.percentwidth=110 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=9 alignment="0" tabsequence=20 border="5" color="33554432" x="2198" y="90" height="73" width="1156" format="[general]" html.valueishtml="0"  name=id_vendedor visible="1" dddw.name=d_ddd_vendedores dddw.displaycolumn=nome dddw.datacolumn=id_usuario dddw.percentwidth=120 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+text(band=detail alignment="0" text="Vendedor" border="0" color="33554432" x="2194" y="10" height="63" width="698" html.valueishtml="0"  name=t_1 visible="1"  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

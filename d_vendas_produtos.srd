@@ -1,0 +1,53 @@
+HA$PBExportHeader$d_vendas_produtos.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 107 print.margin.right = 107 print.margin.top = 93 print.margin.bottom = 93 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 selected.mouse=no )
+header(height=70 color="134217730" )
+summary(height=0 color="536870912" )
+footer(height=70 color="134217730" )
+detail(height=70 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=id_venda dbname="vendas_produtos.id_venda" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=id_movimento dbname="vendas_produtos.id_movimento" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=valor_total dbname="vendas_produtos.valor_total" initial="0" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=valor_unitario dbname="vendas_produtos.valor_unitario" initial="0" )
+ column=(type=long update=yes updatewhereclause=yes name=quantidade dbname="vendas_produtos.quantidade" initial="1" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=id_grade dbname="vendas_produtos.id_grade" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=id_produto dbname="vendas_produtos.id_produto" )
+ column=(type=char(60) updatewhereclause=yes name=descricao_cupom dbname="produto_grade.descricao_cupom" )
+ column=(type=char(30) updatewhereclause=yes name=btn_excluir dbname="btn_excluir" initial="Imagens\Excluir.jpg" )
+ retrieve="SELECT
+	id_venda,
+	id_movimento, 
+	valor_total,
+	valor_unitario, 
+	quantidade, 
+	vp.id_grade, 
+	vp.id_produto,
+	pg.descricao_cupom,
+	cast('Imagens\Excluir.jpg' as varchar(30)) as btn_excluir
+FROM 
+	vendas_produtos vp
+	inner join produto_grade pg on
+		(vp.id_produto = pg.id_produto and vp.id_grade = pg.id_grade)" update="vendas_produtos" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="Valor Total" border="0" color="33554432" x="2980" y="3" height="67" width="359" html.valueishtml="0"  name=valor_total_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
+text(band=header alignment="2" text="Valor Unit$$HEX1$$e100$$ENDHEX$$rio" border="0" color="33554432" x="2500" y="3" height="67" width="473" html.valueishtml="0"  name=valor_unitario_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
+text(band=header alignment="2" text="Quantidade" border="0" color="33554432" x="2126" y="3" height="67" width="366" html.valueishtml="0"  name=quantidade_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
+text(band=header alignment="2" text="Produto" border="0" color="33554432" x="8" y="3" height="67" width="2110" html.valueishtml="0"  name=descricao_cupom_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="33554432" x="2980" y="4" height="63" width="359" format="[general]" html.valueishtml="0"  name=valor_total visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="33554432" x="8" y="4" height="63" width="2110" format="[general]" html.valueishtml="0"  name=descricao_cupom visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=20 border="5" color="33554432" x="2500" y="4" height="63" width="473" format="[general]" html.valueishtml="0"  name=valor_unitario visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=10 border="5" color="33554432" x="2126" y="4" height="63" width="366" format="[general]" html.valueishtml="0"  name=quantidade visible="1" editmask.spin=yes editmask.mask="######" editmask.spinincr=0 editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="33554432" x="3347" y="0" height="63" width="92" format="[general]" html.valueishtml="0"  name=btn_excluir visible="1" bitmapname=yes edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(  quantidade  for all )"border="0" color="33554432" x="2126" y="3" height="63" width="366" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
+compute(band=footer alignment="1" expression="sum(  valor_total  for all )"border="0" color="33554432" x="2980" y="3" height="63" width="359" format="###,###.00" html.valueishtml="0"  name=cmp_total visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
+compute(band=footer alignment="0" expression="'(' + rowcount() + ') registros'"border="0" color="33554432" x="8" y="3" height="63" width="2110" format="[GENERAL]" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

@@ -1,0 +1,45 @@
+HA$PBExportHeader$d_imp_venda_produtos.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 0 print.margin.right = 0 print.margin.top = 0 print.margin.bottom = 0 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 )
+header(height=67 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=70 color="536870912" )
+table(column=(type=char(60) updatewhereclause=yes name=produto_grade_descricao_cupom dbname="produto_grade.descricao_cupom" )
+ column=(type=char(3) updatewhereclause=yes name=produto_embalagem_abreviacao dbname="produto_embalagem.abreviacao" )
+ column=(type=long updatewhereclause=yes name=vendas_produtos_quantidade dbname="vendas_produtos.quantidade" )
+ column=(type=decimal(2) updatewhereclause=yes name=vendas_produtos_valor_unitario dbname="vendas_produtos.valor_unitario" )
+ column=(type=decimal(2) updatewhereclause=yes name=vendas_produtos_valor_total dbname="vendas_produtos.valor_total" )
+ retrieve="SELECT 
+	descricao_cupom,   
+	abreviacao,   
+	quantidade,   
+	valor_unitario,   
+	valor_total  
+FROM 
+	vendas_produtos vp
+	inner join produto_grade pg on
+		(vp.id_produto = pg.id_produto and vp.id_grade = pg.id_grade)
+	inner join produto p on 
+		(pg.id_produto = p.id_produto)
+	inner join produto_embalagem pe on
+		(pe.id_embalagem = p.id_embalagem_saida)
+WHERE 
+	vp.id_venda = :ra_idvenda" arguments=(("ra_idvenda", number)) )
+text(band=header alignment="2" text="Qtd" border="0" color="33554432" x="527" y="3" height="57" width="92" html.valueishtml="0"  name=vendas_produtos_quantidade_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Produtos" border="0" color="33554432" x="11" y="3" height="57" width="500" html.valueishtml="0"  name=produto_grade_descricao_cupom_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Total" border="0" color="33554432" x="633" y="3" height="57" width="195" html.valueishtml="0"  name=vendas_produtos_valor_total_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="33554432" x="633" y="3" height="57" width="195" format="[general]" html.valueishtml="0"  name=vendas_produtos_valor_total visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="33554432" x="527" y="3" height="57" width="92" format="[general]" html.valueishtml="0"  name=vendas_produtos_quantidade visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="11" y="3" height="57" width="500" format="[general]" html.valueishtml="0"  name=produto_grade_descricao_cupom visible="1" edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

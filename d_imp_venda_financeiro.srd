@@ -1,0 +1,47 @@
+HA$PBExportHeader$d_imp_venda_financeiro.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 0 print.margin.right = 0 print.margin.top = 0 print.margin.bottom = 0 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=67 color="536870912" )
+summary(height=137 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=60 color="536870912" )
+table(column=(type=char(50) updatewhereclause=yes name=forma_pagamento_descricao dbname="forma_pagamento.descricao" )
+ column=(type=decimal(2) updatewhereclause=yes name=vendas_financeiros_valor_recebido dbname="vendas_financeiros.valor_recebido" )
+ column=(type=decimal(2) updatewhereclause=yes name=vendas_valor_total_bruto dbname="vendas.valor_total_bruto" )
+ column=(type=decimal(2) updatewhereclause=yes name=vendas_valor_desconto dbname="vendas.valor_desconto" )
+ column=(type=decimal(2) updatewhereclause=yes name=vendas_valor_total_liquido dbname="vendas.valor_total_liquido" )
+ retrieve="SELECT 
+	descricao,   
+	valor_recebido,   
+	valor_total_bruto,   
+	valor_desconto,   
+	valor_total_liquido  
+FROM 
+	vendas v
+	inner join vendas_financeiros vf on
+		(v.id_venda = vf.id_venda)
+	inner join forma_pagamento fp on
+		(vf.id_forma_pagamento = fp.id_forma_pagamento)
+WHERE 
+	v.id_venda = :ra_idvenda" arguments=(("ra_idvenda", number)) )
+text(band=header alignment="1" text="Total:" border="0" color="33554432" x="76" y="0" height="53" width="424" html.valueishtml="0"  name=vendas_valor_total_bruto_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="0" y1="57" x2="809" y2="57"  name=l_1 visible="1" pen.style="0" pen.width="4" pen.color="33554432"  background.mode="2" background.color="1073741824" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="15" y="3" height="47" width="485" format="[general]" html.valueishtml="0"  name=forma_pagamento_descricao visible="1" edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="Desconto:" border="0" color="33554432" x="153" y="13" height="53" width="347" html.valueishtml="0"  name=vendas_valor_desconto_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="Total:" border="0" color="33554432" x="46" y="74" height="53" width="454" html.valueishtml="0"  name=vendas_valor_total_liquido_t visible="1"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=summary x1="0" y1="0" x2="809" y2="0"  name=l_2 visible="1" pen.style="0" pen.width="4" pen.color="33554432"  background.mode="2" background.color="1073741824" )
+column(band=header id=3 alignment="1" tabsequence=32766 border="0" color="33554432" x="534" y="0" height="50" width="279" format="[general]" html.valueishtml="0"  name=vendas_valor_total_bruto visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="534" y="3" height="47" width="279" format="[general]" html.valueishtml="0"  name=vendas_financeiros_valor_recebido visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=summary id=4 alignment="1" tabsequence=32766 border="0" color="33554432" x="534" y="13" height="53" width="279" format="[general]" html.valueishtml="0"  name=vendas_valor_desconto visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=summary id=5 alignment="1" tabsequence=32766 border="0" color="33554432" x="534" y="74" height="53" width="279" format="[general]" html.valueishtml="0"  name=vendas_valor_total_liquido visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

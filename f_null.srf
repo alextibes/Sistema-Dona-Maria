@@ -1,0 +1,15 @@
+HA$PBExportHeader$f_null.srf
+global type f_null from function_object
+end type
+
+forward prototypes
+global function any f_null (any any_valor, any any_retorno)
+end prototypes
+
+global function any f_null (any any_valor, any any_retorno);If isNull(any_Valor) Then //Se o parametro da funcao enviada for nulo
+	Return any_Retorno //Retorna o valor desejado
+End If
+
+Return any_Valor //Retorna o pr$$HEX1$$f300$$ENDHEX$$prio valor do primeiro parametro
+end function
+

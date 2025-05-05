@@ -1,0 +1,9 @@
+HA$PBExportHeader$s_valores.srs
+global type s_valores from structure
+	string		string[]
+	boolean		boolean[]
+	long		long[]
+	decimal { 2 }		decimal[]
+	PowerObject		PowerObj[]
+end type
+
