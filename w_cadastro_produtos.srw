@@ -108,7 +108,8 @@ protected subroutine of_filtrar ();String ls_SQLOriginal, ls_Where
 ls_SQLOriginal = idw_Resultado.GetSQLSelect()
 
 If f_Null(idw_Filtro.GetItemNumber(1, 'id_produto'), 0) > 0 Then
-	ls_Where += ' AND ID_PRODUTO = ' + String(idw_Filtro.GetItemNumber(1, 'id_produto'))
+	ls_Where += ' AND PG.ID_PRODUTO = ' + String(idw_Filtro.GetItemNumber(1, 'id_produto')) + &
+					' OR PG.ID_GRADE = ' + String(idw_Filtro.GetItemNumber(1, 'id_produto'))
 End If
 
 If Trim(f_Null(idw_Filtro.GetItemString(1, 'descricao'), '')) <> '' Then

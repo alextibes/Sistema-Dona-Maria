@@ -5,27 +5,29 @@ header(height=70 color="134217730" )
 summary(height=0 color="536870912" )
 footer(height=0 color="536870912" )
 detail(height=70 color="536870912" )
-table(column=(type=long updatewhereclause=yes name=id_produto dbname="produto_grade.id_produto" )
- column=(type=long updatewhereclause=yes name=id_grade dbname="produto_grade.id_grade" )
+table(column=(type=long updatewhereclause=yes name=id_produto dbname="produto_grade.id_produto" dbalias="PG.id_produto" )
+ column=(type=long updatewhereclause=yes name=id_grade dbname="produto_grade.id_grade" dbalias="PG.id_grade" )
  column=(type=char(8190) updatewhereclause=no name=descricao dbname="descricao" )
- column=(type=decimal(2) updatewhereclause=yes name=valor_venda dbname="produto_grade.valor_venda" )
+ column=(type=char(60) updatewhereclause=yes name=cupom dbname="produto_grade.descricao_cupom" dbalias="PG.descricao_cupom" )
+ column=(type=decimal(2) updatewhereclause=yes name=valor_venda dbname="produto_grade.valor_venda" dbalias="PG.valor_venda" )
  retrieve="SELECT
 	PG.ID_PRODUTO,
 	ID_GRADE,
 	DESCRICAO || ' ' || SUBDESCRICAO as DESCRICAO,
+	DESCRICAO_CUPOM,
 	VALOR_VENDA
 FROM
 	PRODUTO_GRADE PG
 	inner join PRODUTO P on 
 		(PG.id_produto = P.id_produto )
 WHERE
-	1 = 1" )
+	1 = 1"  sort="cupom A " )
 text(band=header alignment="2" text="C$$HEX1$$f300$$ENDHEX$$digo" border="0" color="33554432" x="4" y="3" height="63" width="309" html.valueishtml="0"  name=produto_grade_id_grade_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
 text(band=header alignment="2" text="Descri$$HEX2$$e700e300$$ENDHEX$$o" border="0" color="33554432" x="321" y="3" height="63" width="2026" html.valueishtml="0"  name=descricao_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
 text(band=header alignment="2" text="Valor de Venda" border="0" color="33554432" x="2355" y="3" height="63" width="561" html.valueishtml="0"  name=valor_venda_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="134217730" )
 column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="8" y="4" height="63" width="305" format="[general]" html.valueishtml="0"  name=id_grade visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
 column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="324" y="4" height="63" width="2023" format="[general]" html.valueishtml="0"  name=descricao visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
-column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="33554432" x="2358" y="4" height="63" width="557" format="[general]" html.valueishtml="0"  name=valor_venda visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="33554432" x="2358" y="4" height="63" width="557" format="[general]" html.valueishtml="0"  name=valor_venda visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
 htmltable(border="1" )
 htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
 xhtmlgen() cssgen(sessionspecific="0" )
