@@ -5,11 +5,11 @@ header(height=67 color="536870912" )
 summary(height=0 color="536870912" )
 footer(height=0 color="536870912" )
 detail(height=70 color="536870912" )
-table(column=(type=char(60) updatewhereclause=yes name=produto_grade_descricao_cupom dbname="produto_grade.descricao_cupom" )
- column=(type=char(3) updatewhereclause=yes name=produto_embalagem_abreviacao dbname="produto_embalagem.abreviacao" )
- column=(type=long updatewhereclause=yes name=vendas_produtos_quantidade dbname="vendas_produtos.quantidade" )
- column=(type=decimal(2) updatewhereclause=yes name=vendas_produtos_valor_unitario dbname="vendas_produtos.valor_unitario" )
- column=(type=decimal(2) updatewhereclause=yes name=vendas_produtos_valor_total dbname="vendas_produtos.valor_total" )
+table(column=(type=char(60) updatewhereclause=yes name=produto_grade_descricao_cupom dbname="produto_grade.descricao_cupom" dbalias="pg.descricao_cupom" )
+ column=(type=char(3) updatewhereclause=yes name=produto_embalagem_abreviacao dbname="produto_embalagem.abreviacao" dbalias="pe.abreviacao" )
+ column=(type=long updatewhereclause=yes name=vendas_produtos_quantidade dbname="vendas_produtos.quantidade" dbalias="vp.quantidade" )
+ column=(type=decimal(2) updatewhereclause=yes name=vendas_produtos_valor_unitario dbname="vendas_produtos.valor_unitario" dbalias="vp.valor_unitario" )
+ column=(type=decimal(2) updatewhereclause=yes name=vendas_produtos_valor_total dbname="vendas_produtos.valor_total" dbalias="vp.valor_total" )
  retrieve="SELECT 
 	descricao_cupom,   
 	abreviacao,   
@@ -22,7 +22,7 @@ FROM
 		(vp.id_produto = pg.id_produto and vp.id_grade = pg.id_grade)
 	inner join produto p on 
 		(pg.id_produto = p.id_produto)
-	inner join produto_embalagem pe on
+	left join produto_embalagem pe on
 		(pe.id_embalagem = p.id_embalagem_saida)
 WHERE 
 	vp.id_venda = :ra_idvenda" arguments=(("ra_idvenda", number)) )
