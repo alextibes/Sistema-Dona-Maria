@@ -16,6 +16,7 @@ Long gl_idUsuarioLogado //Guarda o usu$$HEX1$$e100$$ENDHEX$$rio que logou no sis
 
 n_Gravacao gn_Gravacao
 end variables
+
 global type donamaria from application
 string appname = "donamaria"
 end type
@@ -24,6 +25,7 @@ global donamaria donamaria
 type prototypes
 FUNCTION boolean sndPlaySoundA (string SoundName, uint Flags) alias for "sndPlaySoundA;ANSI" LIBRARY "WINMM.DLL"
 end prototypes
+
 on donamaria.create
 appname="donamaria"
 message=create message
