@@ -4,6 +4,10 @@ global type w_cadastro_usuarios from w_ancestral_cadastro
 end type
 type cb_senha from u_commandbutton within tabpage_cadastro
 end type
+type cb_1 from u_commandbutton within tabpage_cadastro
+end type
+type gb_1 from u_groupbox within tabpage_cadastro
+end type
 end forward
 
 global type w_cadastro_usuarios from w_ancestral_cadastro
@@ -116,19 +120,27 @@ end type
 
 type tabpage_cadastro from w_ancestral_cadastro`tabpage_cadastro within tab_principal
 cb_senha cb_senha
+cb_1 cb_1
+gb_1 gb_1
 end type
 
 on tabpage_cadastro.create
 this.cb_senha=create cb_senha
+this.cb_1=create cb_1
+this.gb_1=create gb_1
 int iCurrent
 call super::create
 iCurrent=UpperBound(this.Control)
 this.Control[iCurrent+1]=this.cb_senha
+this.Control[iCurrent+2]=this.cb_1
+this.Control[iCurrent+3]=this.gb_1
 end on
 
 on tabpage_cadastro.destroy
 call super::destroy
 destroy(this.cb_senha)
+destroy(this.cb_1)
+destroy(this.gb_1)
 end on
 
 type cb_cancelar from w_ancestral_cadastro`cb_cancelar within tabpage_cadastro
@@ -138,10 +150,14 @@ type cb_gravar from w_ancestral_cadastro`cb_gravar within tabpage_cadastro
 end type
 
 type dw_cadastro from w_ancestral_cadastro`dw_cadastro within tabpage_cadastro
+integer width = 2996
+integer height = 768
 string dataobject = "d_usuarios_cadastro"
 end type
 
 type gb_cadastro from w_ancestral_cadastro`gb_cadastro within tabpage_cadastro
+integer width = 3076
+integer height = 1660
 end type
 
 type cb_senha from u_commandbutton within tabpage_cadastro
@@ -161,4 +177,32 @@ lst_Enviar.Long[1] = dw_cadastro.GetItemNumber(1, 'id_usuario')
 
 openWithParm(w_senha_usuarios, lst_Enviar)
 end event
+
+type cb_1 from u_commandbutton within tabpage_cadastro
+integer x = 3194
+integer y = 160
+integer width = 763
+integer taborder = 30
+boolean bringtotop = true
+string text = "M$$HEX1$$f300$$ENDHEX$$dulos de acesso"
+boolean fixo_direita = true
+end type
+
+event clicked;call super::clicked;s_Valores lst_Enviar
+
+lst_Enviar.String[1] = dw_cadastro.GetItemString(1, 'nome')
+lst_Enviar.Long[1] = dw_cadastro.GetItemNumber(1, 'id_usuario')
+
+openWithParm(w_permissoes_modulos_usuarios, lst_Enviar)
+end event
+
+type gb_1 from u_groupbox within tabpage_cadastro
+integer x = 3122
+integer y = 40
+integer width = 897
+integer height = 324
+integer taborder = 40
+string text = " Permiss$$HEX1$$f500$$ENDHEX$$es "
+boolean fixo_direita = true
+end type
 
