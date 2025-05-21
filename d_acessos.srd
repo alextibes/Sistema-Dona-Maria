@@ -1,0 +1,33 @@
+HA$PBExportHeader$d_acessos.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 107 print.margin.right = 107 print.margin.top = 93 print.margin.bottom = 93 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 selected.mouse=no )
+header(height=70 color="134217730" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=73 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=id_modulo dbname="modulos.id_modulo" dbalias="m.id_modulo" )
+ column=(type=char(8190) updatewhereclause=no name=modulos dbname="modulos.descricao" dbalias="m.descricao" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=permite_acessar dbname="permite_acessar" values="	1/	0" )
+ retrieve="select 
+	m.id_modulo,
+	descricao,
+	coalesce(permite_acessar, 'false') permite_acessar
+from 
+	usuario_modulos_acesso uma
+	right join modulos m on (uma.id_modulo = m.id_modulo and uma.id_usuario = :ra_id_usuario)
+order by m.id_modulo" arguments=(("ra_id_usuario", number)) )
+text(band=header alignment="2" text="Liberar" border="0" color="33554432" x="1393" y="3" height="63" width="469" html.valueishtml="0"  name=permite_acess_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="M$$HEX1$$f300$$ENDHEX$$dulos" border="0" color="33554432" x="8" y="3" height="63" width="1378" html.valueishtml="0"  name=modulos_t visible="1"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="11" y="4" height="63" width="1374" format="[general]" html.valueishtml="0"  name=modulos visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=3 alignment="2" tabsequence=10 border="0" color="33554432" x="1397" y="4" height="63" width="466" format="[general]" html.valueishtml="0"  name=permite_acessar visible="1" checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 
