@@ -1,0 +1,9 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "cadastros.pbl" "";
+@end;
+@begin Objects
+ "w_permissoes_modulos_usuarios.srw" "cadastros.pbl";
+ "d_usuario_modulos_acesso.srd" "cadastros.pbl";
+ "d_acessos.srd" "cadastros.pbl";
+@end;
