@@ -27,6 +27,12 @@ p_fundo p_fundo
 end type
 global w_fundo w_fundo
 
+type variables
+Private:
+	Boolean ib_Expandido
+	Long il_OldX, il_OldY
+end variables
+
 forward prototypes
 public subroutine of_resizemanual ()
 public subroutine of_atualizar ()
@@ -60,7 +66,7 @@ of_Atualizar()
 end event
 
 type dw_vendas from u_datawindow within w_fundo
-integer x = 1534
+integer x = 1519
 integer y = 872
 integer width = 1362
 integer height = 845
@@ -70,9 +76,34 @@ boolean hscrollbar = false
 boolean vscrollbar = false
 boolean border = false
 boolean livescroll = false
+borderstyle borderstyle = StyleBox!
 boolean fixo_direita = true
 boolean fixo_abaixo = true
 end type
+
+event doubleclicked;call super::doubleclicked;
+If ib_Expandido Then
+	ib_Expandido = False
+	
+	This.X = il_oldx
+	This.y = il_OldY
+	
+	This.Width = 1362
+	This.Height = 845
+	
+Else
+	This.Width = Parent.Width
+	This.Height = Parent.Height
+	
+	il_oldx = This.x
+	il_OldY = This.y
+	
+	This.X = 0
+	This.y = 0
+	
+	ib_Expandido = True
+End If
+end event
 
 type p_fundo from u_picture within w_fundo
 integer width = 2912

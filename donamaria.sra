@@ -16,7 +16,6 @@ Long gl_idUsuarioLogado //Guarda o usu$$HEX1$$e100$$ENDHEX$$rio que logou no sis
 
 n_Gravacao gn_Gravacao
 end variables
-
 global type donamaria from application
 string appname = "donamaria"
 end type

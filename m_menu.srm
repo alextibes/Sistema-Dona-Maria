@@ -11,7 +11,7 @@ m_sair m_sair
 end type
 type m_cadastros from menu within m_menu
 end type
-type m_usu$$HEX1$$e100$$ENDHEX$$rios from menu within m_cadastros
+type m_usuarios from menu within m_cadastros
 end type
 type m_clientes from menu within m_cadastros
 end type
@@ -28,7 +28,7 @@ end type
 type m_embalagens from menu within m_cadastros
 end type
 type m_cadastros from menu within m_menu
-m_usu$$HEX1$$e100$$ENDHEX$$rios m_usu$$HEX1$$e100$$ENDHEX$$rios
+m_usuarios m_usuarios
 m_clientes m_clientes
 m_estados m_estados
 m_fornecedores m_fornecedores
@@ -37,23 +37,23 @@ m_formasdepagamento m_formasdepagamento
 m_produtos m_produtos
 m_embalagens m_embalagens
 end type
-type m_movimenta$$HEX2$$e700f500$$ENDHEX$$es from menucascade within m_menu
+type m_movimentacoes from menucascade within m_menu
 end type
-type m_vendas from menu within m_movimenta$$HEX2$$e700f500$$ENDHEX$$es
+type m_vendas from menu within m_movimentacoes
 end type
-type m_compras from menu within m_movimenta$$HEX2$$e700f500$$ENDHEX$$es
+type m_compras from menu within m_movimentacoes
 end type
-type m_0 from menu within m_movimenta$$HEX2$$e700f500$$ENDHEX$$es
+type m_0 from menu within m_movimentacoes
 end type
-type m_movimenta$$HEX2$$e700e300$$ENDHEX$$odeestoque from menu within m_movimenta$$HEX2$$e700f500$$ENDHEX$$es
+type m_movimentacaodeestoque from menu within m_movimentacoes
 end type
-type m_movimenta$$HEX2$$e700f500$$ENDHEX$$es from menucascade within m_menu
+type m_movimentacoes from menucascade within m_menu
 m_vendas m_vendas
 m_compras m_compras
 m_0 m_0
-m_movimenta$$HEX2$$e700e300$$ENDHEX$$odeestoque m_movimenta$$HEX2$$e700e300$$ENDHEX$$odeestoque
+m_movimentacaodeestoque m_movimentacaodeestoque
 end type
-type m_relat$$HEX1$$f300$$ENDHEX$$rios from menu within m_menu
+type m_relatorios from menu within m_menu
 end type
 type m_financeiro from menu within m_menu
 end type
@@ -82,8 +82,8 @@ end type
 global type m_menu from menu
 m_arquivo m_arquivo
 m_cadastros m_cadastros
-m_movimenta$$HEX2$$e700f500$$ENDHEX$$es m_movimenta$$HEX2$$e700f500$$ENDHEX$$es
-m_relat$$HEX1$$f300$$ENDHEX$$rios m_relat$$HEX1$$f300$$ENDHEX$$rios
+m_movimentacoes m_movimentacoes
+m_relatorios m_relatorios
 m_financeiro m_financeiro
 m_janelas m_janelas
 m_ajuda m_ajuda
@@ -93,8 +93,8 @@ end forward
 global type m_menu from menu
 m_arquivo m_arquivo
 m_cadastros m_cadastros
-m_movimenta$$HEX2$$e700f500$$ENDHEX$$es m_movimenta$$HEX2$$e700f500$$ENDHEX$$es
-m_relat$$HEX1$$f300$$ENDHEX$$rios m_relat$$HEX1$$f300$$ENDHEX$$rios
+m_movimentacoes m_movimentacoes
+m_relatorios m_relatorios
 m_financeiro m_financeiro
 m_janelas m_janelas
 m_ajuda m_ajuda
@@ -121,15 +121,15 @@ this.toolbarhighlightcolor = 134217741
 this.toolbargradient = true
 this.m_arquivo=create m_arquivo
 this.m_cadastros=create m_cadastros
-this.m_movimenta$$HEX2$$e700f500$$ENDHEX$$es=create m_movimenta$$HEX2$$e700f500$$ENDHEX$$es
-this.m_relat$$HEX1$$f300$$ENDHEX$$rios=create m_relat$$HEX1$$f300$$ENDHEX$$rios
+this.m_movimentacoes=create m_movimentacoes
+this.m_relatorios=create m_relatorios
 this.m_financeiro=create m_financeiro
 this.m_janelas=create m_janelas
 this.m_ajuda=create m_ajuda
 this.Item[UpperBound(this.Item)+1]=this.m_arquivo
 this.Item[UpperBound(this.Item)+1]=this.m_cadastros
-this.Item[UpperBound(this.Item)+1]=this.m_movimenta$$HEX2$$e700f500$$ENDHEX$$es
-this.Item[UpperBound(this.Item)+1]=this.m_relat$$HEX1$$f300$$ENDHEX$$rios
+this.Item[UpperBound(this.Item)+1]=this.m_movimentacoes
+this.Item[UpperBound(this.Item)+1]=this.m_relatorios
 this.Item[UpperBound(this.Item)+1]=this.m_financeiro
 this.Item[UpperBound(this.Item)+1]=this.m_janelas
 this.Item[UpperBound(this.Item)+1]=this.m_ajuda
@@ -139,8 +139,8 @@ on m_menu.destroy
 call super::destroy
 destroy(this.m_arquivo)
 destroy(this.m_cadastros)
-destroy(this.m_movimenta$$HEX2$$e700f500$$ENDHEX$$es)
-destroy(this.m_relat$$HEX1$$f300$$ENDHEX$$rios)
+destroy(this.m_movimentacoes)
+destroy(this.m_relatorios)
 destroy(this.m_financeiro)
 destroy(this.m_janelas)
 destroy(this.m_ajuda)
@@ -207,7 +207,7 @@ event clicked;Halt Close
 end event
 
 type m_cadastros from menu within m_menu
-m_usu$$HEX1$$e100$$ENDHEX$$rios m_usu$$HEX1$$e100$$ENDHEX$$rios
+m_usuarios m_usuarios
 m_clientes m_clientes
 m_estados m_estados
 m_fornecedores m_fornecedores
@@ -234,7 +234,7 @@ this.toolbartextcolor = 134217746
 this.toolbarbackcolor = 67108864
 this.toolbarhighlightcolor = 134217741
 this.toolbargradient = true
-this.m_usu$$HEX1$$e100$$ENDHEX$$rios=create m_usu$$HEX1$$e100$$ENDHEX$$rios
+this.m_usuarios=create m_usuarios
 this.m_clientes=create m_clientes
 this.m_estados=create m_estados
 this.m_fornecedores=create m_fornecedores
@@ -242,7 +242,7 @@ this.m_-=create m_-
 this.m_formasdepagamento=create m_formasdepagamento
 this.m_produtos=create m_produtos
 this.m_embalagens=create m_embalagens
-this.Item[UpperBound(this.Item)+1]=this.m_usu$$HEX1$$e100$$ENDHEX$$rios
+this.Item[UpperBound(this.Item)+1]=this.m_usuarios
 this.Item[UpperBound(this.Item)+1]=this.m_clientes
 this.Item[UpperBound(this.Item)+1]=this.m_estados
 this.Item[UpperBound(this.Item)+1]=this.m_fornecedores
@@ -254,7 +254,7 @@ end on
 
 on m_cadastros.destroy
 call super::destroy
-destroy(this.m_usu$$HEX1$$e100$$ENDHEX$$rios)
+destroy(this.m_usuarios)
 destroy(this.m_clientes)
 destroy(this.m_estados)
 destroy(this.m_fornecedores)
@@ -264,11 +264,12 @@ destroy(this.m_produtos)
 destroy(this.m_embalagens)
 end on
 
-type m_usu$$HEX1$$e100$$ENDHEX$$rios from menu within m_cadastros
+type m_usuarios from menu within m_cadastros
 end type
 
-on m_usu$$HEX1$$e100$$ENDHEX$$rios.create
+on m_usuarios.create
 call super::create
+this.tag = "1"
 this.text = "&Usu$$HEX1$$e100$$ENDHEX$$rios"
 this.menuimage = "Imagens\usuario_32.ico"
 this.menustyle = contemporarymenu!
@@ -287,7 +288,7 @@ this.toolbarhighlightcolor = 134217741
 this.toolbargradient = true
 end on
 
-on m_usu$$HEX1$$e100$$ENDHEX$$rios.destroy
+on m_usuarios.destroy
 call super::destroy
 end on
 
@@ -299,6 +300,7 @@ end type
 
 on m_clientes.create
 call super::create
+this.tag = "2"
 this.text = "&Clientes"
 this.toolbaritemname = "Imagens\Cliente.ico"
 this.toolbaritemtext = "Cadastro de Clientes"
@@ -331,6 +333,7 @@ end type
 
 on m_estados.create
 call super::create
+this.tag = "3"
 this.text = "&Estados"
 this.menuimage = "Imagens\globe.ico"
 this.menustyle = contemporarymenu!
@@ -364,6 +367,7 @@ end event
 
 on m_fornecedores.create
 call super::create
+this.tag = "4"
 this.text = "&Fornecedores"
 this.toolbaritemname = "Imagens\fornecedores.ico"
 this.toolbaritemtext = "Cadastro de Fornecedores"
@@ -419,6 +423,7 @@ end type
 
 on m_formasdepagamento.create
 call super::create
+this.tag = "5"
 this.text = "Formas de Pa&gamento"
 this.menuimage = "Imagens\pagamento_32.ico"
 this.menustyle = contemporarymenu!
@@ -449,6 +454,7 @@ end type
 
 on m_produtos.create
 call super::create
+this.tag = "6"
 this.text = "&Produtos"
 this.toolbaritemname = "Imagens\produto.ico"
 this.toolbaritemtext = "Cadastro de Produtos"
@@ -484,6 +490,7 @@ end event
 
 on m_embalagens.create
 call super::create
+this.tag = "7"
 this.text = "Em&balagens"
 this.menuimage = "Imagens\embalagem_32.ico"
 this.menustyle = contemporarymenu!
@@ -506,14 +513,14 @@ on m_embalagens.destroy
 call super::destroy
 end on
 
-type m_movimenta$$HEX2$$e700f500$$ENDHEX$$es from menucascade within m_menu
+type m_movimentacoes from menucascade within m_menu
 m_vendas m_vendas
 m_compras m_compras
 m_0 m_0
-m_movimenta$$HEX2$$e700e300$$ENDHEX$$odeestoque m_movimenta$$HEX2$$e700e300$$ENDHEX$$odeestoque
+m_movimentacaodeestoque m_movimentacaodeestoque
 end type
 
-on m_movimenta$$HEX2$$e700f500$$ENDHEX$$es.create
+on m_movimentacoes.create
 call super::create
 this.text = "&Movimenta$$HEX2$$e700f500$$ENDHEX$$es"
 this.toolbaritembarindex = 0
@@ -534,22 +541,22 @@ this.toolbargradient = true
 this.m_vendas=create m_vendas
 this.m_compras=create m_compras
 this.m_0=create m_0
-this.m_movimenta$$HEX2$$e700e300$$ENDHEX$$odeestoque=create m_movimenta$$HEX2$$e700e300$$ENDHEX$$odeestoque
+this.m_movimentacaodeestoque=create m_movimentacaodeestoque
 this.Item[UpperBound(this.Item)+1]=this.m_vendas
 this.Item[UpperBound(this.Item)+1]=this.m_compras
 this.Item[UpperBound(this.Item)+1]=this.m_0
-this.Item[UpperBound(this.Item)+1]=this.m_movimenta$$HEX2$$e700e300$$ENDHEX$$odeestoque
+this.Item[UpperBound(this.Item)+1]=this.m_movimentacaodeestoque
 end on
 
-on m_movimenta$$HEX2$$e700f500$$ENDHEX$$es.destroy
+on m_movimentacoes.destroy
 call super::destroy
 destroy(this.m_vendas)
 destroy(this.m_compras)
 destroy(this.m_0)
-destroy(this.m_movimenta$$HEX2$$e700e300$$ENDHEX$$odeestoque)
+destroy(this.m_movimentacaodeestoque)
 end on
 
-type m_vendas from menu within m_movimenta$$HEX2$$e700f500$$ENDHEX$$es
+type m_vendas from menu within m_movimentacoes
 end type
 
 event clicked;openSheet(w_Vendas, w_Principal, 0, Layered!)
@@ -557,6 +564,7 @@ end event
 
 on m_vendas.create
 call super::create
+this.tag = "8"
 this.text = "&Vendas~tF2"
 this.shortcut = 113
 this.toolbaritemname = "Imagens\vendas.ico"
@@ -583,11 +591,12 @@ on m_vendas.destroy
 call super::destroy
 end on
 
-type m_compras from menu within m_movimenta$$HEX2$$e700f500$$ENDHEX$$es
+type m_compras from menu within m_movimentacoes
 end type
 
 on m_compras.create
 call super::create
+this.tag = "9"
 this.text = "&Compras~tF3"
 this.shortcut = 114
 this.menustyle = contemporarymenu!
@@ -610,7 +619,7 @@ on m_compras.destroy
 call super::destroy
 end on
 
-type m_0 from menu within m_movimenta$$HEX2$$e700f500$$ENDHEX$$es
+type m_0 from menu within m_movimentacoes
 end type
 
 on m_0.create
@@ -636,11 +645,12 @@ on m_0.destroy
 call super::destroy
 end on
 
-type m_movimenta$$HEX2$$e700e300$$ENDHEX$$odeestoque from menu within m_movimenta$$HEX2$$e700f500$$ENDHEX$$es
+type m_movimentacaodeestoque from menu within m_movimentacoes
 end type
 
-on m_movimenta$$HEX2$$e700e300$$ENDHEX$$odeestoque.create
+on m_movimentacaodeestoque.create
 call super::create
+this.tag = "10"
 this.text = "Movimenta$$HEX2$$e700e300$$ENDHEX$$o de Estoque"
 this.menustyle = contemporarymenu!
 this.menutextcolor = 134217735
@@ -658,14 +668,14 @@ this.toolbarhighlightcolor = 134217741
 this.toolbargradient = true
 end on
 
-on m_movimenta$$HEX2$$e700e300$$ENDHEX$$odeestoque.destroy
+on m_movimentacaodeestoque.destroy
 call super::destroy
 end on
 
-type m_relat$$HEX1$$f300$$ENDHEX$$rios from menu within m_menu
+type m_relatorios from menu within m_menu
 end type
 
-on m_relat$$HEX1$$f300$$ENDHEX$$rios.create
+on m_relatorios.create
 call super::create
 this.text = "&Relat$$HEX1$$f300$$ENDHEX$$rios"
 this.menustyle = contemporarymenu!
@@ -684,7 +694,7 @@ this.toolbarhighlightcolor = 134217741
 this.toolbargradient = true
 end on
 
-on m_relat$$HEX1$$f300$$ENDHEX$$rios.destroy
+on m_relatorios.destroy
 call super::destroy
 end on
 
@@ -727,6 +737,7 @@ end type
 
 on m_contasareceber.create
 call super::create
+this.tag = "11"
 this.text = "Contas a Receber"
 this.menustyle = contemporarymenu!
 this.menutextcolor = 134217735
@@ -753,6 +764,7 @@ end type
 
 on m_contasapagar.create
 call super::create
+this.tag = "12"
 this.text = "Contas a Pagar"
 this.menustyle = contemporarymenu!
 this.menutextcolor = 134217735
