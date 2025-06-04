@@ -42,7 +42,7 @@ private subroutine of_logar ()
 private subroutine of_cancelar ()
 end prototypes
 
-public function boolean of_validar_login ();String ls_Login, ls_Senha
+public function boolean of_validar_login ();String ls_Login, ls_Senha, ls_Usuario, ls_SQL
 Long ll_idUsuario
 Boolean lb_FlagInativo
 
@@ -63,9 +63,9 @@ End If
 
 //Faz o select no banco para verificar se o usu$$HEX1$$e100$$ENDHEX$$rio existe, est$$HEX2$$e1002000$$ENDHEX$$ativo e se a senha informada confere com o cadastro
 SELECT 
-	ID_USUARIO, FLAG_INATIVO
+	ID_USUARIO, FLAG_INATIVO, NOME
 INTO
-	:ll_idUsuario, :lb_FlagInativo
+	:ll_idUsuario, :lb_FlagInativo, :ls_Usuario
 FROM
 	USUARIO
 WHERE
@@ -82,6 +82,11 @@ Else
 	MessageBox(gs_Sistema, 'N$$HEX1$$e300$$ENDHEX$$o foi encontrado nenhum registro para o login e senha informados.')
 	Return False
 End If
+
+INSERT INTO session_data ("current_user") VALUES (:ls_Usuario);
+COMMIT USING SQLCA;
+
+select "current_user" into :ls_sql from  session_data;
 
 gl_idUsuarioLogado = ll_idUsuario //Seta o usu$$HEX1$$e100$$ENDHEX$$rio que acessou o sistema
 

@@ -4,9 +4,12 @@ global type m_menu from menu
 end type
 type m_arquivo from menu within m_menu
 end type
+type m_logsdeauditorias from menu within m_arquivo
+end type
 type m_sair from menu within m_arquivo
 end type
 type m_arquivo from menu within m_menu
+m_logsdeauditorias m_logsdeauditorias
 m_sair m_sair
 end type
 type m_cadastros from menu within m_menu
@@ -147,6 +150,7 @@ destroy(this.m_ajuda)
 end on
 
 type m_arquivo from menu within m_menu
+m_logsdeauditorias m_logsdeauditorias
 m_sair m_sair
 end type
 
@@ -167,14 +171,47 @@ this.toolbartextcolor = 134217746
 this.toolbarbackcolor = 67108864
 this.toolbarhighlightcolor = 134217741
 this.toolbargradient = true
+this.m_logsdeauditorias=create m_logsdeauditorias
 this.m_sair=create m_sair
+this.Item[UpperBound(this.Item)+1]=this.m_logsdeauditorias
 this.Item[UpperBound(this.Item)+1]=this.m_sair
 end on
 
 on m_arquivo.destroy
 call super::destroy
+destroy(this.m_logsdeauditorias)
 destroy(this.m_sair)
 end on
+
+type m_logsdeauditorias from menu within m_arquivo
+end type
+
+on m_logsdeauditorias.create
+call super::create
+this.text = "Logs de Auditorias"
+this.menuimage = "Imagens\auditoria_32.ico"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217730
+this.textsize = -12
+this.weight = 400
+this.facename = "Arial"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 134217732
+this.menubitmaps = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+end on
+
+on m_logsdeauditorias.destroy
+call super::destroy
+end on
+
+event clicked;openSheet(w_Logs, w_Principal, 0, Original!)
+end event
 
 type m_sair from menu within m_arquivo
 end type
