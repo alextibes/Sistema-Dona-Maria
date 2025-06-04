@@ -1,0 +1,48 @@
+HA$PBExportHeader$d_logs.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 107 print.margin.right = 107 print.margin.top = 93 print.margin.bottom = 93 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 )
+header(height=70 color="134217730" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=73 color="536870912" )
+table(column=(type=char(8190) updatewhereclause=no name=table_name dbname="audit_log.table_name" dbalias=".table_name" )
+ column=(type=char(8190) updatewhereclause=no name=operation dbname="audit_log.operation" dbalias=".operation" )
+ column=(type=datetime updatewhereclause=yes name=changed_at dbname="audit_log.changed_at" dbalias=".changed_at" )
+ column=(type=char(8190) updatewhereclause=no name=changed_by dbname="audit_log.changed_by" dbalias=".changed_by" )
+ column=(type=char(255) updatewhereclause=yes name=old_data dbname="audit_log.old_data" dbalias=".old_data" )
+ column=(type=char(255) updatewhereclause=yes name=new_data dbname="audit_log.new_data" dbalias=".new_data" )
+ retrieve="SELECT 
+	table_name,   
+	operation,   
+	changed_at,   
+	changed_by,   
+	old_data,   
+	new_data  
+FROM 
+	audit_log 
+WHERE
+	 Date(changed_at) BETWEEN :RA_DATAINI AND :RA_DATAFIM
+" arguments=(("RA_DATAINI", date),("RA_DATAFIM", date)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="11" y="4" height="63" width="717" format="[general]" html.valueishtml="0"  name=table_name visible="1" edit.limit=8190 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="740" y="4" height="63" width="569" format="[general]" html.valueishtml="0"  name=operation visible="1" edit.limit=8190 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="1320" y="4" height="63" width="653" format="[shortdate] [time]" html.valueishtml="0"  name=changed_at visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="33554432" x="1981" y="4" height="63" width="1412" format="[general]" html.valueishtml="0"  name=changed_by visible="1" edit.limit=8190 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="33554432" x="3404" y="4" height="63" width="2183" format="[general]" html.valueishtml="0"  name=old_data visible="1" edit.limit=255 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="33554432" x="5598" y="4" height="63" width="1874" format="[general]" html.valueishtml="0"  name=new_data visible="1" edit.limit=255 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Tabela" border="0" color="33554432" x="11" y="3" height="63" width="717" html.valueishtml="0"  name=table_name_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Opera$$HEX2$$e700e300$$ENDHEX$$o" border="0" color="33554432" x="740" y="3" height="63" width="569" html.valueishtml="0"  name=operation_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Data de Altera$$HEX2$$e700e300$$ENDHEX$$o" border="0" color="33554432" x="1320" y="3" height="63" width="653" html.valueishtml="0"  name=changed_at_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Usu$$HEX1$$e100$$ENDHEX$$rio" border="0" color="33554432" x="1981" y="3" height="63" width="1412" html.valueishtml="0"  name=changed_by_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Dado Antigo" border="0" color="33554432" x="3404" y="3" height="63" width="2183" html.valueishtml="0"  name=old_data_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Dado Novo" border="0" color="33554432" x="5598" y="3" height="63" width="1874" html.valueishtml="0"  name=new_data_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 
