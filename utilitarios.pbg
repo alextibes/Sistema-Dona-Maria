@@ -1,0 +1,9 @@
+Save Format v3.0(19990112)
+@begin Libraries
+ "utilitarios.pbl" "";
+@end;
+@begin Objects
+ "d_logs.srd" "utilitarios.pbl";
+ "w_logs.srw" "utilitarios.pbl";
+ "d_filtro_logs.srd" "utilitarios.pbl";
+@end;
