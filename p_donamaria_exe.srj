@@ -16,6 +16,7 @@ PBD:C:\Sistema Dona Maria\cadastros.pbl,,1
 PBD:C:\Sistema Dona Maria\entradas.pbl,,1
 PBD:C:\Sistema Dona Maria\saidas.pbl,,1
 PBD:C:\Sistema Dona Maria\relatorios.pbl,,1
+PBD:C:\Sistema Dona Maria\utilitarios.pbl,,0
 OBJ:C:\Sistema Dona Maria\componentes.pbl,w_ancestral_cadastro,w
 OBJ:C:\Sistema Dona Maria\saidas.pbl,d_vendas_financeiros,d
 OBJ:C:\Sistema Dona Maria\saidas.pbl,d_vendas_produtos,d
@@ -26,6 +27,7 @@ OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_fornecedores_filtro,d
 OBJ:C:\Sistema Dona Maria\componentes.pbl,n_resize,u
 OBJ:C:\Sistema Dona Maria\saidas.pbl,d_impressao_vendas,d
 OBJ:C:\Sistema Dona Maria\componentes.pbl,u_datawindow,u
+OBJ:c:\sistema dona maria\utilitarios.pbl,d_logs,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_produtos_grades_cadastro,d
 OBJ:C:\Sistema Dona Maria\componentes.pbl,u_editmask,u
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_clientes_cadastro,d
@@ -39,6 +41,7 @@ OBJ:C:\Sistema Dona Maria\cadastros.pbl,w_cadastro_usuarios,w
 OBJ:C:\Sistema Dona Maria\donamaria.pbl,donamaria,a
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_usuarios_resultado,d
 OBJ:C:\Sistema Dona Maria\saidas.pbl,w_vendas,w
+OBJ:C:\Sistema Dona Maria\relatorios.pbl,d_rel_filtro_datas,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,w_cadastro_embalagens,w
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,w_cadastro_estados,w
 OBJ:C:\Sistema Dona Maria\saidas.pbl,d_vendas,d
@@ -47,6 +50,7 @@ OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_embalagens_cadastro,d
 OBJ:C:\Sistema Dona Maria\donamaria.pbl,m_menu,m
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_fornecedores_resultado,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_produtos_cadastro,d
+OBJ:c:\sistema dona maria\utilitarios.pbl,d_filtro_logs,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_clientes_filtro,d
 OBJ:C:\Sistema Dona Maria\componentes.pbl,u_statictext,u
 OBJ:C:\Sistema Dona Maria\componentes.pbl,u_groupbox,u
@@ -56,11 +60,17 @@ OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_usuarios_cadastro,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_clientes_resultado,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_formaspgto_resultado,d
 OBJ:C:\Sistema Dona Maria\donamaria.pbl,w_login,w
+OBJ:c:\sistema dona maria\utilitarios.pbl,w_logs,w
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,w_cadastro_produtos,w
 OBJ:C:\Sistema Dona Maria\saidas.pbl,w_vendas_financeiro,w
+OBJ:C:\Sistema Dona Maria\cadastros.pbl,w_permissoes_modulos_usuarios,w
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_formaspgto_cadastro,d
+OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_acessos,d
 OBJ:C:\Sistema Dona Maria\componentes.pbl,u_picture,u
+OBJ:C:\Sistema Dona Maria\relatorios.pbl,d_rel_vendas,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_embalagens_filtro,d
+OBJ:C:\Sistema Dona Maria\relatorios.pbl,w_ancestral_relatorio,w
+OBJ:C:\Sistema Dona Maria\relatorios.pbl,w_rel_vendas,w
 OBJ:C:\Sistema Dona Maria\donamaria.pbl,n_gravacao,u
 OBJ:C:\Sistema Dona Maria\donamaria.pbl,f_null,f
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_formaspgto_filtro,d

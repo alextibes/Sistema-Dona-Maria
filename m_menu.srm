@@ -58,6 +58,11 @@ m_movimentacaodeestoque m_movimentacaodeestoque
 end type
 type m_relatorios from menu within m_menu
 end type
+type m_rel_vendas from menu within m_relatorios
+end type
+type m_relatorios from menu within m_menu
+m_rel_vendas m_rel_vendas
+end type
 type m_financeiro from menu within m_menu
 end type
 type m_contasareceber from menu within m_financeiro
@@ -710,6 +715,7 @@ call super::destroy
 end on
 
 type m_relatorios from menu within m_menu
+m_rel_vendas m_rel_vendas
 end type
 
 on m_relatorios.create
@@ -729,11 +735,43 @@ this.toolbartextcolor = 134217746
 this.toolbarbackcolor = 67108864
 this.toolbarhighlightcolor = 134217741
 this.toolbargradient = true
+this.m_rel_vendas=create m_rel_vendas
+this.Item[UpperBound(this.Item)+1]=this.m_rel_vendas
 end on
 
 on m_relatorios.destroy
 call super::destroy
+destroy(this.m_rel_vendas)
 end on
+
+type m_rel_vendas from menu within m_relatorios
+end type
+
+on m_rel_vendas.create
+call super::create
+this.text = "Vendas"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217730
+this.textsize = -12
+this.weight = 400
+this.facename = "Arial"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 134217732
+this.menubitmaps = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+end on
+
+on m_rel_vendas.destroy
+call super::destroy
+end on
+
+event clicked;openSheet(w_rel_vendas, w_Principal, 0, Layered!)
+end event
 
 type m_financeiro from menu within m_menu
 m_contasareceber m_contasareceber
