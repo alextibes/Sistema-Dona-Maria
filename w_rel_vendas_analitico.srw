@@ -29,7 +29,11 @@ on w_rel_vendas_analitico.destroy
 call super::destroy
 end on
 
-event open;call super::open;dw_Filtro.SetItem(1, 'datainicial', Today())
+event open;call super::open;Date ld_Inicial
+
+ld_Inicial = RelativeDate( Today(), -30)
+
+dw_Filtro.SetItem(1, 'datainicial', ld_Inicial)
 dw_Filtro.SetItem(1, 'datafinal', Today())
 end event
 

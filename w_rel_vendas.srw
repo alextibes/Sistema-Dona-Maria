@@ -29,6 +29,14 @@ on w_rel_vendas.destroy
 call super::destroy
 end on
 
+event open;call super::open;Date ld_Inicial
+
+ld_Inicial = Date('01/'+string(Month(today()))+'/'+string(Year(Today())))
+
+dw_Filtro.SetItem(1, 'datainicial', ld_Inicial)
+dw_Filtro.SetItem(1, 'datafinal', Today())
+end event
+
 type cb_gerar from w_ancestral_relatorio`cb_gerar within w_rel_vendas
 end type
 
