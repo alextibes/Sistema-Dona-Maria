@@ -39,6 +39,8 @@ idw_Resultado.SetSQLSelect(ls_SQLOriginal)
 end subroutine
 
 protected function boolean of_validar_gravacao ();String ls_Nome, ls_Erro, ls_Senha, ls_Login
+String ls_CNPJCPF
+String ls_Cripto
 
 idw_Cadastro.AcceptText() //For$$HEX1$$e700$$ENDHEX$$a os valores a serem aceitos pela dw
 
@@ -57,6 +59,17 @@ End If
 
 //Atualiza a data da ultima altera$$HEX2$$e700e300$$ENDHEX$$o
 idw_Cadastro.SetItem(1, 'data_alteracao', Now())
+
+//Criptografa o CPF para gravar
+
+ls_CNPJCPF = idw_Cadastro.GetItemString(1, 'cnpj_cpf')
+
+select encode(criptografar_cpf(:ls_CNPJCPF, 'MinhaChaveUltraSecreta@123'), 'base64')
+into :ls_Cripto
+From (SELECT 1)
+USING SQLCA;
+
+idw_Cadastro.SetItem(1, 'cnpj_cpf', ls_Cripto)
 
 Return True
 end function

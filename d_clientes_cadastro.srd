@@ -9,7 +9,7 @@ table(column=(type=long updatewhereclause=yes key=yes name=id_cliente dbname="cl
  column=(type=char(200) update=yes updatewhereclause=yes name=nome dbname="cliente.nome" )
  column=(type=char(5) update=yes updatewhereclause=yes name=flag_inativo dbname="cliente.flag_inativo" initial="false" values="Ativo	0/Inativo	1/" )
  column=(type=char(255) update=yes updatewhereclause=yes name=tipo_pessoa dbname="cliente.tipo_pessoa" initial="FISICA" values="F$$HEX1$$ed00$$ENDHEX$$sica	FISICA/Jur$$HEX1$$ed00$$ENDHEX$$dica	JURIDICA/" )
- column=(type=char(20) update=yes updatewhereclause=yes name=cnpj_cpf dbname="cliente.cnpj_cpf" )
+ column=(type=char(8190) update=yes updatewhereclause=yes name=cnpj_cpf dbname="cnpj_cpf" )
  column=(type=char(200) update=yes updatewhereclause=yes name=endereco dbname="cliente.endereco" )
  column=(type=char(100) update=yes updatewhereclause=yes name=bairro dbname="cliente.bairro" )
  column=(type=char(10) update=yes updatewhereclause=yes name=cep dbname="cliente.cep" )
@@ -22,7 +22,7 @@ table(column=(type=long updatewhereclause=yes key=yes name=id_cliente dbname="cl
 	NOME,
 	FLAG_INATIVO,
 	TIPO_PESSOA,
-	CNPJ_CPF,
+	descriptografar_cpf(CNPJ_CPF, 'MinhaChaveUltraSecreta@123') AS CNPJ_CPF,
 	ENDERECO,
 	BAIRRO,
 --	CIDADE,
