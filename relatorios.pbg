@@ -3,8 +3,11 @@ Save Format v3.0(19990112)
  "relatorios.pbl" "";
 @end;
 @begin Objects
+ "d_rel_vendas_analitico.srd" "relatorios.pbl";
+ "w_rel_vendas_analitico.srw" "relatorios.pbl";
  "d_rel_filtro_datas.srd" "relatorios.pbl";
  "w_ancestral_relatorio.srw" "relatorios.pbl";
+ "w_relatorios_lista.srw" "relatorios.pbl";
  "d_rel_vendas.srd" "relatorios.pbl";
  "w_rel_vendas.srw" "relatorios.pbl";
 @end;
