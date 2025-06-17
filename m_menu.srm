@@ -58,10 +58,10 @@ m_movimentacaodeestoque m_movimentacaodeestoque
 end type
 type m_relatorios from menu within m_menu
 end type
-type m_rel_vendas from menu within m_relatorios
+type m_listaderelat$$HEX1$$f300$$ENDHEX$$rios from menu within m_relatorios
 end type
 type m_relatorios from menu within m_menu
-m_rel_vendas m_rel_vendas
+m_listaderelat$$HEX1$$f300$$ENDHEX$$rios m_listaderelat$$HEX1$$f300$$ENDHEX$$rios
 end type
 type m_financeiro from menu within m_menu
 end type
@@ -715,7 +715,7 @@ call super::destroy
 end on
 
 type m_relatorios from menu within m_menu
-m_rel_vendas m_rel_vendas
+m_listaderelat$$HEX1$$f300$$ENDHEX$$rios m_listaderelat$$HEX1$$f300$$ENDHEX$$rios
 end type
 
 on m_relatorios.create
@@ -735,21 +735,21 @@ this.toolbartextcolor = 134217746
 this.toolbarbackcolor = 67108864
 this.toolbarhighlightcolor = 134217741
 this.toolbargradient = true
-this.m_rel_vendas=create m_rel_vendas
-this.Item[UpperBound(this.Item)+1]=this.m_rel_vendas
+this.m_listaderelat$$HEX1$$f300$$ENDHEX$$rios=create m_listaderelat$$HEX1$$f300$$ENDHEX$$rios
+this.Item[UpperBound(this.Item)+1]=this.m_listaderelat$$HEX1$$f300$$ENDHEX$$rios
 end on
 
 on m_relatorios.destroy
 call super::destroy
-destroy(this.m_rel_vendas)
+destroy(this.m_listaderelat$$HEX1$$f300$$ENDHEX$$rios)
 end on
 
-type m_rel_vendas from menu within m_relatorios
+type m_listaderelat$$HEX1$$f300$$ENDHEX$$rios from menu within m_relatorios
 end type
 
-on m_rel_vendas.create
+on m_listaderelat$$HEX1$$f300$$ENDHEX$$rios.create
 call super::create
-this.text = "Vendas"
+this.text = "Lista de relat$$HEX1$$f300$$ENDHEX$$rios"
 this.menustyle = contemporarymenu!
 this.menutextcolor = 134217735
 this.menubackcolor = 134217732
@@ -766,11 +766,11 @@ this.toolbarhighlightcolor = 134217741
 this.toolbargradient = true
 end on
 
-on m_rel_vendas.destroy
+on m_listaderelat$$HEX1$$f300$$ENDHEX$$rios.destroy
 call super::destroy
 end on
 
-event clicked;openSheet(w_rel_vendas, w_Principal, 0, Layered!)
+event clicked;openSheet(w_relatorios_lista, w_Principal, 0, Layered!)
 end event
 
 type m_financeiro from menu within m_menu
