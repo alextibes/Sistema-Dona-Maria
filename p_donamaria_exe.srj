@@ -6,17 +6,17 @@ COM:Dona Maria
 DES:Produzido por Alex Tibes
 CPY:
 PRD:Dona Maria Sistemas
-PVS:1,3,0,1
-PVN:1,3,0,1
-FVS:1,3,0,1
-FVN:1,3,0,1
+PVS:1,5,0,1
+PVN:1,5,0,1
+FVS:1,5,0,1
+FVN:1,5,0,1
 PBD:C:\Sistema Dona Maria\donamaria.pbl,,1
 PBD:C:\Sistema Dona Maria\componentes.pbl,,1
 PBD:C:\Sistema Dona Maria\cadastros.pbl,,1
 PBD:C:\Sistema Dona Maria\entradas.pbl,,1
 PBD:C:\Sistema Dona Maria\saidas.pbl,,1
 PBD:C:\Sistema Dona Maria\relatorios.pbl,,1
-PBD:C:\Sistema Dona Maria\utilitarios.pbl,,0
+PBD:C:\Sistema Dona Maria\utilitarios.pbl,,1
 OBJ:C:\Sistema Dona Maria\componentes.pbl,w_ancestral_cadastro,w
 OBJ:C:\Sistema Dona Maria\saidas.pbl,d_vendas_financeiros,d
 OBJ:C:\Sistema Dona Maria\saidas.pbl,d_vendas_produtos,d
@@ -27,7 +27,6 @@ OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_fornecedores_filtro,d
 OBJ:C:\Sistema Dona Maria\componentes.pbl,n_resize,u
 OBJ:C:\Sistema Dona Maria\saidas.pbl,d_impressao_vendas,d
 OBJ:C:\Sistema Dona Maria\componentes.pbl,u_datawindow,u
-OBJ:c:\sistema dona maria\utilitarios.pbl,d_logs,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_produtos_grades_cadastro,d
 OBJ:C:\Sistema Dona Maria\componentes.pbl,u_editmask,u
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_clientes_cadastro,d
@@ -43,6 +42,7 @@ OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_usuarios_resultado,d
 OBJ:C:\Sistema Dona Maria\saidas.pbl,w_vendas,w
 OBJ:C:\Sistema Dona Maria\relatorios.pbl,d_rel_filtro_datas,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,w_cadastro_embalagens,w
+OBJ:C:\Sistema Dona Maria\utilitarios.pbl,d_filtro_logs,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,w_cadastro_estados,w
 OBJ:C:\Sistema Dona Maria\saidas.pbl,d_vendas,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,w_senha_usuarios,w
@@ -50,21 +50,22 @@ OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_embalagens_cadastro,d
 OBJ:C:\Sistema Dona Maria\donamaria.pbl,m_menu,m
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_fornecedores_resultado,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_produtos_cadastro,d
-OBJ:c:\sistema dona maria\utilitarios.pbl,d_filtro_logs,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_clientes_filtro,d
 OBJ:C:\Sistema Dona Maria\componentes.pbl,u_statictext,u
 OBJ:C:\Sistema Dona Maria\componentes.pbl,u_groupbox,u
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_produtos_filtro,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,w_cadastro_fornecedores,w
+OBJ:C:\Sistema Dona Maria\relatorios.pbl,d_rel_vendas_analitico,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_usuarios_cadastro,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_clientes_resultado,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_formaspgto_resultado,d
+OBJ:C:\Sistema Dona Maria\relatorios.pbl,w_relatorios_lista,w
 OBJ:C:\Sistema Dona Maria\donamaria.pbl,w_login,w
-OBJ:c:\sistema dona maria\utilitarios.pbl,w_logs,w
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,w_cadastro_produtos,w
 OBJ:C:\Sistema Dona Maria\saidas.pbl,w_vendas_financeiro,w
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,w_permissoes_modulos_usuarios,w
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_formaspgto_cadastro,d
+OBJ:C:\Sistema Dona Maria\componentes.pbl,u_statichyperlink,u
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_acessos,d
 OBJ:C:\Sistema Dona Maria\componentes.pbl,u_picture,u
 OBJ:C:\Sistema Dona Maria\relatorios.pbl,d_rel_vendas,d
@@ -80,10 +81,13 @@ OBJ:C:\Sistema Dona Maria\donamaria.pbl,w_principal,w
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,w_cadastro_clientes,w
 OBJ:C:\Sistema Dona Maria\donamaria.pbl,w_fundo,w
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_estados_resultado,d
+OBJ:C:\Sistema Dona Maria\utilitarios.pbl,w_logs,w
 OBJ:C:\Sistema Dona Maria\componentes.pbl,w_ancestral,w
 OBJ:C:\Sistema Dona Maria\componentes.pbl,s_resize,s
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_estados_cadastro,d
 OBJ:C:\Sistema Dona Maria\componentes.pbl,u_singlelineedit,u
 OBJ:C:\Sistema Dona Maria\donamaria.pbl,s_valores,s
+OBJ:C:\Sistema Dona Maria\utilitarios.pbl,d_logs,d
 OBJ:C:\Sistema Dona Maria\cadastros.pbl,d_produtos_resultado,d
+OBJ:C:\Sistema Dona Maria\relatorios.pbl,w_rel_vendas_analitico,w
 OBJ:C:\Sistema Dona Maria\saidas.pbl,w_pesquisa_produtos_venda,w
