@@ -42,7 +42,7 @@ private subroutine of_logar ()
 private subroutine of_cancelar ()
 end prototypes
 
-public function boolean of_validar_login ();String ls_Login, ls_Senha, ls_Usuario, ls_SQL
+public function boolean of_validar_login ();String ls_Login, ls_Senha, ls_Usuario
 Long ll_idUsuario
 Boolean lb_FlagInativo
 
@@ -61,32 +61,26 @@ If ls_Senha = '' Then
 	Return False
 End If
 
-//Faz o select no banco para verificar se o usu$$HEX1$$e100$$ENDHEX$$rio existe, est$$HEX2$$e1002000$$ENDHEX$$ativo e se a senha informada confere com o cadastro
+//Faz o select no banco para verificar se o usu$$HEX1$$e100$$ENDHEX$$rio existe, est$$HEX2$$e1002000$$ENDHEX$$ativo e 
+//se a senha informada confere com o cadastro
 SELECT 
-	ID_USUARIO, FLAG_INATIVO, NOME
+	ID_USUARIO, NOME
 INTO
-	:ll_idUsuario, :lb_FlagInativo, :ls_Usuario
+	:ll_idUsuario, :ls_Usuario
 FROM
 	USUARIO
 WHERE
-	UPPER(LOGIN) = :ls_Login AND SENHA = crypt(:ls_Senha, senha)
+	UPPER(LOGIN) = :ls_Login AND SENHA = crypt(:ls_Senha, senha) AND FLAG_INATIVO = FALSE
 USING SQLCA;
 
-
-If f_Null(ll_idUsuario, 0) > 0 Then
-	If lb_FlagInativo Then
-		MessageBox(gs_Sistema, 'O login informado est$$HEX2$$e1002000$$ENDHEX$$inativo no seu cadastro.')
-		Return False
-	End If
-Else
+If f_Null(ll_idUsuario, 0) = 0 Then
 	MessageBox(gs_Sistema, 'N$$HEX1$$e300$$ENDHEX$$o foi encontrado nenhum registro para o login e senha informados.')
 	Return False
 End If
 
+//Insere no banco o usu$$HEX1$$e100$$ENDHEX$$rio logado na sess$$HEX1$$e300$$ENDHEX$$o para o controle de Logs
 INSERT INTO session_data ("current_user") VALUES (:ls_Usuario);
-COMMIT USING SQLCA;
-
-select "current_user" into :ls_sql from  session_data;
+gn_Gravacao.of_Comitar(False)
 
 gl_idUsuarioLogado = ll_idUsuario //Seta o usu$$HEX1$$e100$$ENDHEX$$rio que acessou o sistema
 
