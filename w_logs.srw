@@ -19,6 +19,7 @@ integer width = 4270
 integer height = 2047
 string title = "Logs de Auditoria"
 string icon = "Imagens\auditoria.ico"
+boolean utiliza_resize = true
 cb_1 cb_1
 dw_filtro dw_filtro
 dw_resultado dw_resultado
