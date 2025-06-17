@@ -1,0 +1,59 @@
+HA$PBExportHeader$d_rel_vendas_analitico.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 107 print.margin.right = 107 print.margin.top = 93 print.margin.bottom = 93 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 selected.mouse=no )
+header(height=72 color="134217730" )
+summary(height=72 color="134217730" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=date updatewhereclause=yes name=date dbname="date" )
+ column=(type=decimal(2) updatewhereclause=yes name=valor_total_bruto dbname="vendas.valor_total_bruto" dbalias="v.valor_total_bruto" )
+ column=(type=decimal(2) updatewhereclause=yes name=valor_desconto dbname="vendas.valor_desconto" dbalias="v.valor_desconto" )
+ column=(type=decimal(2) updatewhereclause=yes name=valor_total_liquido dbname="vendas.valor_total_liquido" dbalias=".valor_total_liquido" )
+ column=(type=long updatewhereclause=yes name=id_venda dbname="vendas.id_venda" dbalias="v.id_venda" )
+ column=(type=char(8190) updatewhereclause=no name=venda dbname="venda" )
+ column=(type=long updatewhereclause=yes name=id_grade dbname="vendas_produtos.id_grade" dbalias="vp.id_grade" )
+ column=(type=long updatewhereclause=yes name=quantidade dbname="vendas_produtos.quantidade" dbalias="vp.quantidade" )
+ column=(type=decimal(2) updatewhereclause=yes name=produtos_valor_total dbname="vendas_produtos.valor_total" dbalias="vp.valor_total" )
+ column=(type=char(60) updatewhereclause=yes name=descricao_cupom dbname="produto_grade.descricao_cupom" dbalias="pg.descricao_cupom" )
+ retrieve="select 
+	date(data_hora_movimentacao),
+	valor_total_bruto,
+	valor_desconto,
+	Valor_total_liquido,
+	v.id_venda,
+	'Venda: ' || v.id_venda as venda,
+	vp.id_grade,
+	vp.quantidade,
+	vp.valor_total,
+	pg.descricao_cupom 
+from 
+	vendas v 
+	inner join vendas_produtos vp on (v.id_venda = vp.id_venda )
+	inner join produto_grade pg on (pg.id_produto = vp.id_produto and pg.id_grade = vp.id_grade )
+where
+	date(data_hora_movimentacao) between date(:ra_datainicial) and date(:ra_datafinal)
+order by
+	v.id_venda desc, id_grade " arguments=(("RA_DATAINICIAL", date),("RA_DATAFINAL", date)) )
+group(level=1 header.height=72 trailer.height=0 by=("id_venda" ) header.color="134217730" trailer.color="536870912" )
+text(band=header alignment="2" text="Valor Total" border="0" color="33554432" x="2555" y="4" height="64" width="626" html.valueishtml="0"  name=produtos_valor_total_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Quantidade" border="0" color="33554432" x="2089" y="4" height="64" width="457" html.valueishtml="0"  name=quantidade_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Produto" border="0" color="33554432" x="471" y="4" height="64" width="1609" html.valueishtml="0"  name=descricao_cupom_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="C$$HEX1$$f300$$ENDHEX$$digo" border="0" color="33554432" x="9" y="4" height="64" width="453" html.valueishtml="0"  name=id_grade_t visible="1"  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header.1 id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="471" y="4" height="64" width="1609" format="[general]" html.valueishtml="0"  name=date visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header.1 id=4 alignment="1" tabsequence=32766 border="0" color="33554432" x="2560" y="4" height="64" width="622" format="[general]" html.valueishtml="0"  name=valor_total_liquido visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header.1 id=6 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="4" height="64" width="453" format="[general]" html.valueishtml="0"  name=venda visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="33554432" x="9" y="4" height="64" width="453" format="[general]" html.valueishtml="0"  name=id_grade visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="33554432" x="2089" y="4" height="64" width="457" format="[general]" html.valueishtml="0"  name=quantidade visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="33554432" x="2560" y="4" height="64" width="622" format="[general]" html.valueishtml="0"  name=produtos_valor_total visible="1" editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="33554432" x="471" y="4" height="64" width="1609" format="[general]" html.valueishtml="0"  name=descricao_cupom visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1073741824" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 
